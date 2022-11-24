@@ -2,7 +2,7 @@
 
 const ItemListContainer = ({greeting}) => {
   return (
-    <div>{greeting}</div>
+    <div className="text-4xl mt-6 font-mono">{greeting}</div>
   )
 }
 
