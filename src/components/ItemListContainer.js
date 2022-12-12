@@ -1,44 +1,53 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { PRODUCTS } from "../data/Clothes"
 import ItemList from "./ItemList"
 
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
 
 
   const [item, setItem] = useState([])
 
-  const PRODUCTS= [
-    {name: "Buzo",price: 25,stock:20},
-    {name:"Buzo largo", price: 30,stock:10},
-    {name:"Hoodie",price:30,stock:15}
-  ]
+  const {idCategory}= useParams()
 
 
 
   useEffect(()=>{
-    getItems().then((response)=>{
-      console.log(response)
-      setItem(response)
-    })
-  },[])
+
+
+    if(idCategory){
+
+      getItems().then((response)=>{setItem(response.filter(product=>product.category === idCategory))})
+    }else{
+      getItems().then((response)=>{      
+        setItem(response)
+      })
+    }
+
+
+    
+
+
+
+  },[idCategory])
 
 
   const getItems=()=>{
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve)=>{
       setTimeout(()=>{
         resolve(PRODUCTS)
       },2000)
     })
   }
 
-
   
 
 
 
   return (
-    <div className="text-4xl mt-6 font-mono">
-      {item.map(i=> <ItemList {...i}/>)}
+    <div>
+      {item.map(i=> <ItemList key={item.id}{...i}/>)}
     </div>
   )
 }

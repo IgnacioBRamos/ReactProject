@@ -1,23 +1,25 @@
 import { useState } from "react"
 
 
-const ItemCount = () => {
+const ItemCount = ({stock}) => {
 
     const [count, setCount] = useState(0)
 
+    
+    const clickPlus = () =>{
+        
+        if (count < stock){
+            setCount(count => count + 1)
+        }
+    }
 
-    const clickMinus = ()=>{
-        console.log("se hizo click minus")
+
+    const clickMinus = ()=>{       
         if (count >= 1){
-            setCount(count - 1)
+            setCount(count=> count - 1)
         }       
     }
 
-    const clickPlus = () =>{
-        console.log("se hizo click plus")
-        
-        setCount(count + 1)
-    }
 
 
   return (
