@@ -37,7 +37,7 @@ const ItemListContainer = () => {
     return new Promise((resolve)=>{
       setTimeout(()=>{
         resolve(PRODUCTS)
-      },2000)
+      },1000)
     })
   }
 
@@ -46,7 +46,7 @@ const ItemListContainer = () => {
 
 
   return (
-    <div>
+    <div className="flex flex-row flex-wrap">
       {item.map(i=> <ItemList key={item.id}{...i}/>)}
     </div>
   )

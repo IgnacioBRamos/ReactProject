@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom"
 
-
-const ItemList = ({ id, name, price, stock }) => {
+const ItemList = ({ id, name, price, stock,img }) => {
   return (
-    <div className=" flex flex-row">
-      
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-          <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-          <div className="card-body">
-            <h2 className="card-title">{name}</h2>
-            <p>{price}</p>
+    <div>
+        <div className="card card-compact w-96 bg-base-100 shadow-xl m-20">
+          <figure><img src= {img} alt="" /></figure>
+          <div className="card-body">   
+            <h2 className="text-2xl">{name}</h2>
+            <p className="text-xl">${price}</p>
             
             <Link to={`/item/${id}`} className="btn">Detalle</Link>
             <h6>Stock Disponible: {stock}</h6>

@@ -24,18 +24,19 @@ const ItemDetailContainer = () => {
             const item = PRODUCTS.find(p => p.id == id)
             setTimeout(() => {
                 resolve(item)
-            }, 2000)
+            }, 1000)
         })
     }
     return (
         <div className='py-4'>
-            <div className="card card-side bg-base-100 shadow-xl">
-                <figure><img src="https://placeimg.com/200/280/arch" alt="Movie" /></figure>
+            <div className="card card-side bg-base-100 shadow-xl w-2/5 mx-auto mt-20">
+                <figure><img src={item.img} alt="Movie" /></figure>
                 <div className="card-body">
-                    <h2 >{item.name}</h2>
-                    <p>{item.price}</p>
-                    {item.stock}
+                    <h2 className='text-2xl font-medium'>{item.name}</h2>
+                    <p className='mt-20'>{item.detail}</p>
+                    <span className='text-xl font-medium'>${item.price}</span>
                     <ItemCount stock={item.stock}/>
+                    <p>Stock Disponible: {item.stock}</p>
                 </div>
             </div>  
         </div>
