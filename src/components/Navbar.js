@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
+
 import CartWidget from "./CartWidget"
 
 
 const Navbar = () => {
+
+
     return (
         <div className="flex justify-between navbar bg-accent text-black sticky top-0 z-40">
             
