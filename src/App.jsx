@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import { CartContextProvider } from './context/cartContex';
-import ItemDetail from './components/ItemDetail';
+
 import Cart from './components/Cart';
+import ItemListContainers from './components/ItemListContainers';
+import ItemDetailContainers from './components/ItemDetailContainers';
 
 function App() {
   return (
@@ -17,10 +18,17 @@ function App() {
         <Navbar/>
 
         <Routes>
-          <Route path='/' element={<ItemListContainer/>}/>
+          {/* <Route path='/' element={<ItemListContainer/>}/>
           <Route path='/category/:idCategory' element={<ItemListContainer/>}/>
-          <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+          <Route path='/item/:id' element={<ItemDetailContainer/>}/> */}
           <Route path='/cart' element={<Cart/>}/>
+
+
+          <Route path='/' element={<ItemListContainers/>}/>
+          <Route path='/category/:idCategory' element={<ItemListContainers/>}/>
+          <Route path='/items/:id' element={<ItemDetailContainers/>}/>
+
+
         </Routes>
         
         <Footer/>  
