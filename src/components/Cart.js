@@ -56,7 +56,7 @@ const Cart = () => {
             <th>Producto</th>
             <th>Precio</th>
             <th>Unidades</th>
-            <th>Precio total</th>
+            <th>Subtotal</th>
           </tr>
         </thead>
         <tbody>
@@ -79,8 +79,8 @@ const Cart = () => {
             <th></th>
             <th></th>
             <th></th>
-            <th>Total Carrito</th>
-            <th>${totalPriceCart()}</th>
+            <th>Total</th>
+            <th className='text-base'>${totalPriceCart()}</th>
           </tr>
 
         </tfoot>
@@ -94,9 +94,9 @@ const Cart = () => {
       <div className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">Todo Listo!!</h3>
-          <p className="py-4">Su orden: {orderNumber} ha sido registrada con exito </p>
+          <p className="py-4">Gracias por realizar su compra.<br/>Su orden: {orderNumber} ha sido registrada con exito</p>
           <div className="modal-action">
-            <label htmlFor="my-modal" className="btn">Yay!</label>
+            <Link to='/'><label htmlFor="my-modal" className="btn">Volver a Inicio</label></Link>
           </div>
         </div>
       </div>

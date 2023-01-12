@@ -33,10 +33,6 @@ const ItemListContainers = () => {
                 const itemsuelto = item.filter(p=> p.category == idCategory)
                 setItems(itemsuelto)
             }
-
-   
-            
-
         })
     }
 

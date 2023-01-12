@@ -17,18 +17,11 @@ function App() {
         <div className="App">    
         <Navbar/>
 
-        <Routes>
-          {/* <Route path='/' element={<ItemListContainer/>}/>
-          <Route path='/category/:idCategory' element={<ItemListContainer/>}/>
-          <Route path='/item/:id' element={<ItemDetailContainer/>}/> */}
-          <Route path='/cart' element={<Cart/>}/>
-
-
+        <Routes>       
           <Route path='/' element={<ItemListContainers/>}/>
           <Route path='/category/:idCategory' element={<ItemListContainers/>}/>
           <Route path='/items/:id' element={<ItemDetailContainers/>}/>
-
-
+          <Route path='/cart' element={<Cart/>}/>
         </Routes>
         
         <Footer/>  
