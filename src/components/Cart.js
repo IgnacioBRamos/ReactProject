@@ -1,32 +1,10 @@
-import React, {useState } from 'react'
+import React from 'react'
 import { useCart } from '../context/cartContex'
-import { collection, addDoc, getFirestore } from "firebase/firestore";
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
   const { cart, totalPriceCart, removeProduct, cleanCart } = useCart()
-
-  const [orderNumber, setOrderNumber] = useState()
-  const order = {
-    buyer: {
-      name: "Ignacio",
-      email: "Nacho@hotmail.com",
-      phone: '123123',
-      address: "Midtown"
-    },
-    items: cart.map(product => ({ id: product.id, name: product.name, price: product.price, quantity: product.cantidad })),
-    total: totalPriceCart(),
-  }
-
-  const handleClick = () => {
-    const db = getFirestore();
-    const ordersCollection = collection(db, 'orders');
-    addDoc(ordersCollection, order)
-      .then(({ id }) => setOrderNumber(id))
-  }
-
-
 
 
   if (cart.length === 0) {
@@ -42,10 +20,6 @@ const Cart = () => {
 
 
   return (
-
-
-
-
     <div className="container mx-auto py-10">
       <table className="table w-full">
 
@@ -86,21 +60,7 @@ const Cart = () => {
         </tfoot>
       </table>
       <button onClick={cleanCart} className='btn m-5 btn-error btn-outline'>Vaciar Carrito</button>
-      
-      <label htmlFor="my-modal" className="btn my-5 btn btn-outline btn-success" onClick={handleClick}>Emitir Compra</label>
-
-      
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Todo Listo!!</h3>
-          <p className="py-4">Gracias por realizar su compra.<br/>Su orden: {orderNumber} ha sido registrada con exito</p>
-          <div className="modal-action">
-            <Link to='/'><label htmlFor="my-modal" className="btn">Volver a Inicio</label></Link>
-          </div>
-        </div>
-      </div>
-
+      <Link to="/form" className="btn my-5 btn btn-outline btn-success">Ir a finalizar compra</Link>
     </div>
   )
 }

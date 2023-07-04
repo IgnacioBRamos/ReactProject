@@ -18,7 +18,7 @@ const ItemDetails = ({ items }) => {
     return (
         <div className='py-4'>
             <div className="card card-side bg-base-200 shadow-xl w-2/5 mx-auto mt-20">
-                <img src={items.img} alt="Movie" className='p-5'/>
+                <img src={items.img} alt="Movie" className='p-5 w-96'/>
                 <div className="card-body">
                     <h2 className='text-2xl font-medium'>{items.name}</h2>
                     <p className='mt-20'>{items.detail}</p>
